@@ -11,4 +11,8 @@
     <string name="product_item_description_example">Описание Мега бургера</string>
     <string name="product_item_title_example">Мега бургер</string>
     <string name="product_item_price">от %1s р</string>
+    <string name="action_menu_title">Меню</string>
+    <string name="action_profile_title">Профиль</string>
+    <string name="action_basket_title">Корзина</string>
+    <string name="activity_isnt_navigation_router_provider_error_msg">MainActivity должна имплементировать NavigationRouterProvider</string>
 </resources>

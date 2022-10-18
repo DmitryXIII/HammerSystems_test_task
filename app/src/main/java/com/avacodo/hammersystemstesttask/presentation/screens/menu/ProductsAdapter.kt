@@ -15,9 +15,9 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
 
     private var productsList = listOf<ProductDomain>()
 
-    fun setData(mBannersList: List<ProductDomain>) {
-        val diffUtilCallback = DiffUtilCallback(productsList, mBannersList)
-        productsList = mBannersList
+    fun setData(mProductsList: List<ProductDomain>) {
+        val diffUtilCallback = DiffUtilCallback(productsList, mProductsList)
+        productsList = mProductsList
         DiffUtil.calculateDiff(diffUtilCallback).dispatchUpdatesTo(this)
     }
 

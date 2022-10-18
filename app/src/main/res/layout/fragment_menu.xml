@@ -8,8 +8,8 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/default_layout_padding"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:paddingHorizontal="@dimen/default_layout_padding">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
@@ -90,4 +90,12 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         tools:itemCount="3"
         tools:listitem="@layout/product_item" />
+
+    <ProgressBar
+        android:id="@+id/menu_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/app_primary"
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

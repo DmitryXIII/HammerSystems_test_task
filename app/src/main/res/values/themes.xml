@@ -10,9 +10,10 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="tabStyle">@style/Widget.App.TabLayoutStyle</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="tabStyle">@style/Widget.App.TabLayoutStyle</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.NavigationStyle</item>
     </style>
 
     <style name="Widget.App.TabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
@@ -31,6 +32,12 @@
     <style name="Widget.App.TabStyle" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.App.NavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/bottom_navigation_bg</item>
+        <item name="itemIconTint">@color/bottom_navigation_item_colors</item>
+        <item name="itemTextColor">@color/bottom_navigation_item_colors</item>
     </style>
 </resources>
 

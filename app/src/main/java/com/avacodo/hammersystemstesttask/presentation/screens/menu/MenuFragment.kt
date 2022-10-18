@@ -1,18 +1,17 @@
 package com.avacodo.hammersystemstesttask.presentation.screens.menu
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.avacodo.hammersystemstesttask.databinding.FragmentMenuBinding
 import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
-import com.avacodo.hammersystemstesttask.presentation.BaseFragment
+import com.avacodo.hammersystemstesttask.presentation.BaseFragmentWithViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class MenuFragment :
-    BaseFragment<FragmentMenuBinding, MenuDataDomain>(FragmentMenuBinding::inflate) {
+    BaseFragmentWithViewModel<FragmentMenuBinding, MenuDataDomain>(FragmentMenuBinding::inflate) {
 
-    private val viewModel by stateViewModel<MenuViewModel>()
+    override val viewModel by stateViewModel<MenuViewModel>()
     private val bannersAdapter = ToolbarBannersAdapter()
     private val productsAdapter = ProductsAdapter()
 
@@ -35,7 +34,6 @@ class MenuFragment :
 
     override val provideOnSuccessAction: (MenuDataDomain) -> Unit = {
         super.provideOnSuccessAction
-        Log.d("@#@", "${it.products}")
         bannersAdapter.setData(it.banners)
         productsAdapter.setData(it.products)
     }

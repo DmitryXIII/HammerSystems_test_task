@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.google.android.material.snackbar.Snackbar
+import com.avacodo.hammersystemstesttask.R
+import com.avacodo.hammersystemstesttask.presentation.screens.navigation.NavigationRouter
 
-abstract class BaseFragment<VB : ViewBinding, ResultType>(
+abstract class BaseFragment<VB : ViewBinding>(
     private val inflateBinding: (
         inflater: LayoutInflater,
         root: ViewGroup?,
@@ -21,11 +20,7 @@ abstract class BaseFragment<VB : ViewBinding, ResultType>(
     private var _binding: VB? = null
     val binding: VB get() = _binding!!
 
-//    abstract val viewModel: BaseViewModel<ResultType>
-
-    protected open val progressBar: ProgressBar? = null
-
-//    protected lateinit var router: NavigationRouter
+    protected lateinit var router: NavigationRouter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,29 +34,12 @@ abstract class BaseFragment<VB : ViewBinding, ResultType>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        if (requireActivity() !is NavigationRouter) {
-//            throw IllegalStateException(getString(
-//                R.string.activity_isnt_navigation_router_error_msg))
-//        } else {
-//            router = requireActivity() as NavigationRouter
-//        }
-    }
-
-    protected open val provideOnStartLoadingAction = {
-        progressBar?.isVisible = true
-    }
-
-    protected open val provideOnSuccessAction: (ResultType) -> Unit = {
-        onEndLoading()
-    }
-
-    protected open val provideOnErrorAction: (String) -> Unit = { errorMessage ->
-        onEndLoading()
-        Snackbar.make(binding.root, errorMessage, Snackbar.LENGTH_SHORT).show()
-    }
-
-    private fun onEndLoading() {
-        progressBar?.isVisible = false
+        if (requireActivity() !is NavigationRouterProvider) {
+            throw IllegalStateException(getString(
+                R.string.activity_isnt_navigation_router_provider_error_msg))
+        } else {
+            router = (requireActivity() as NavigationRouterProvider).provideNavigationRouter()
+        }
     }
 
     override fun onDestroy() {
