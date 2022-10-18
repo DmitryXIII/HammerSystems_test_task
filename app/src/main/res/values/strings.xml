@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HammerSystemsTestTask</string>
+    <string name="group_pizza">Пицца</string>
+    <string name="group_combo">Комбо</string>
+    <string name="group_desserts">Десерты</string>
+    <string name="group_drinks">Напитки</string>
+    <string name="group_rolls">Роллы</string>
+    <string name="group_salads">Салаты</string>
+    <string name="city_moscow">Москва</string>
 </resources>

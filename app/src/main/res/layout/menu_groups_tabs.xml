@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.tabs.TabLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tabs_height"
+    android:layout_marginBottom="@dimen/toolbar_margin">
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_pizza" />
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_combo" />
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_desserts" />
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_drinks" />
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_rolls" />
+
+    <com.google.android.material.tabs.TabItem
+        style="@style/Widget.App.TabStyle"
+        android:text="@string/group_salads" />
+</com.google.android.material.tabs.TabLayout>
