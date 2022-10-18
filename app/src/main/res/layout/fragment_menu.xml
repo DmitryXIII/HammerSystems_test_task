@@ -18,6 +18,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/toolbar_banners_recycler_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/toolbar_height"
@@ -31,6 +32,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/toolbar_height"
+                android:background="@color/white"
                 app:contentInsetStart="@dimen/zero"
                 app:layout_collapseMode="pin">
 
@@ -43,6 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/city_moscow"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
                         android:textSize="@dimen/toolbar_city_text_size"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

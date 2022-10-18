@@ -2,6 +2,7 @@ package com.avacodo.hammersystemstesttask
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.avacodo.hammersystemstesttask.presentation.screens.menu.MenuFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
