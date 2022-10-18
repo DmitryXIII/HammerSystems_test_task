@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask
+package com.avacodo.hammersystemstesttask.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater

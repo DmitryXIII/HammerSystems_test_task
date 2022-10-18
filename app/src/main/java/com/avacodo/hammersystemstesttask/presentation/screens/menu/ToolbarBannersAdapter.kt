@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.avacodo.hammersystemstesttask.databinding.ToolbarBannerItemBinding
 import com.avacodo.hammersystemstesttask.domain.models.ToolbarBannerDomain
+import com.avacodo.hammersystemstesttask.presentation.DiffUtilCallback
 
 class ToolbarBannersAdapter :
     RecyclerView.Adapter<ToolbarBannersAdapter.ToolbarBannersViewHolder>() {
@@ -42,25 +43,6 @@ class ToolbarBannersAdapter :
             ToolbarBannerItemBinding.bind(itemView).apply {
                 toolbarBannerItemImageView.load(toolbarBannerDomain.imageSource)
             }
-        }
-    }
-
-    class DiffUtilCallback(
-        private val oldList: List<ToolbarBannerDomain>,
-        private val newList: List<ToolbarBannerDomain>,
-    ) : DiffUtil.Callback() {
-
-        override fun getOldListSize(): Int = oldList.size
-        override fun getNewListSize(): Int = newList.size
-
-        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return areContentsTheSame(oldItemPosition, newItemPosition)
-        }
-
-        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            val oldItem = oldList[oldItemPosition]
-            val newItem = newList[newItemPosition]
-            return oldItem == newItem
         }
     }
 }

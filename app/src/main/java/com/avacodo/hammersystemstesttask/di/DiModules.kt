@@ -1,9 +1,9 @@
 package com.avacodo.hammersystemstesttask.di
 
 import com.avacodo.hammersystemstesttask.data.GetProductsUsecaseImpl
+import com.avacodo.hammersystemstesttask.data.MapperToDomain
 import com.avacodo.hammersystemstesttask.data.ProductsRepository
 import com.avacodo.hammersystemstesttask.data.ProductsRepositoryImpl
-import com.avacodo.hammersystemstesttask.data.MapperToDomain
 import com.avacodo.hammersystemstesttask.data.remote.ProductsApi
 import com.avacodo.hammersystemstesttask.data.remote.RetrofitClient
 import com.avacodo.hammersystemstesttask.domain.usecase.GetProductsUsecase

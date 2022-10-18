@@ -10,4 +10,7 @@
     <dimen name="toolbar_margin">24dp</dimen>
     <dimen name="qr_icon_size">24dp</dimen>
     <dimen name="tab_corner_radius">6dp</dimen>
+    <dimen name="product_item_height">167dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="price_stroke_width">1dp</dimen>
 </resources>

@@ -9,7 +9,8 @@ class MapperToDomain {
             id = productDto.id,
             name = productDto.name,
             description = productDto.detailText,
-            price = productDto.offers.first().price
+            price = productDto.offers.first().price.toInt(),
+            imageUrl = productDto.offers.first().previewPicture
         )
     }
 }

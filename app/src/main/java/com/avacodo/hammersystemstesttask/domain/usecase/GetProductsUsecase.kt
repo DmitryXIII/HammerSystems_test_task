@@ -1,7 +1,7 @@
 package com.avacodo.hammersystemstesttask.domain.usecase
 
-import com.avacodo.hammersystemstesttask.domain.models.ProductDomain
+import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
 
 interface GetProductsUsecase {
-    suspend fun getProducts(isCashDataRequired: Boolean): List<ProductDomain>
+    suspend fun getMenuData(isCashDataRequired: Boolean): MenuDataDomain
 }

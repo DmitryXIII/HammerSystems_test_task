@@ -1,7 +1,8 @@
-package com.avacodo.hammersystemstesttask
+package com.avacodo.hammersystemstesttask.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.avacodo.hammersystemstesttask.R
 import com.avacodo.hammersystemstesttask.presentation.screens.menu.MenuFragment
 
 class MainActivity : AppCompatActivity() {

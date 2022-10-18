@@ -7,4 +7,8 @@
     <string name="group_rolls">Роллы</string>
     <string name="group_salads">Салаты</string>
     <string name="city_moscow">Москва</string>
+    <string name="product_item_price_example">от 300 р</string>
+    <string name="product_item_description_example">Описание Мега бургера</string>
+    <string name="product_item_title_example">Мега бургер</string>
+    <string name="product_item_price">от %1s р</string>
 </resources>
