@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask.data.remote
+package com.avacodo.hammersystemstesttask.data
 
 import com.avacodo.hammersystemstesttask.data.remote.dto.ProductDto
 import com.avacodo.hammersystemstesttask.domain.models.ProductDomain
