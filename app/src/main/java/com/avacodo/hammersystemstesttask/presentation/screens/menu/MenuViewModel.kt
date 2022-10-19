@@ -15,11 +15,10 @@ class MenuViewModel(
     stateHandle: SavedStateHandle,
 ) : BaseViewModel<MenuDataDomain>() {
 
-    suspend fun getMenuData(): StateFlow<AppState<MenuDataDomain>?> {
+    fun getMenuData() {
         resultState.value = AppState.Loading()
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             resultState.value = AppState.Success(usecase.getMenuData(false))
         }
-        return resultState
     }
 }

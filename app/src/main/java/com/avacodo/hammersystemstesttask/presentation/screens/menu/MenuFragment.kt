@@ -22,13 +22,17 @@ class MenuFragment :
         binding.menuProductsRecyclerView.adapter = productsAdapter
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.getMenuData().collect {
+            viewModel.getData().collect {
                 it?.handleState(
                     onStartLoadingAction = provideOnStartLoadingAction,
                     onSuccessAction = provideOnSuccessAction,
                     onErrorAction = provideOnErrorAction
                 )
             }
+        }
+
+        if (savedInstanceState == null) {
+            viewModel.getMenuData()
         }
     }
 
