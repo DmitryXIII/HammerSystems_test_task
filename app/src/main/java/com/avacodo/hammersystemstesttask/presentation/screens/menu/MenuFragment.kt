@@ -17,10 +17,16 @@ class MenuFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        restoreTabPosition()
+        initAdapters()
+        subscribeOnDataChanges()
 
-        binding.toolbarBannersRecyclerView.adapter = bannersAdapter
-        binding.menuProductsRecyclerView.adapter = productsAdapter
+        if (savedInstanceState == null) {
+            viewModel.getMenuData()
+        }
+    }
 
+    private fun subscribeOnDataChanges() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.getData().collect {
                 it?.handleState(
@@ -30,9 +36,18 @@ class MenuFragment :
                 )
             }
         }
+    }
 
-        if (savedInstanceState == null) {
-            viewModel.getMenuData()
+    private fun initAdapters() {
+        binding.toolbarBannersRecyclerView.adapter = bannersAdapter
+        binding.menuProductsRecyclerView.adapter = productsAdapter
+    }
+
+    private fun restoreTabPosition() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.getSavedTabPosition().collect {
+                binding.tabLayout.root.getTabAt(it)?.select()
+            }
         }
     }
 
@@ -40,5 +55,10 @@ class MenuFragment :
         super.provideOnSuccessAction
         bannersAdapter.setData(it.banners)
         productsAdapter.setData(it.products)
+    }
+
+    override fun onDestroy() {
+        viewModel.saveTabPosition(binding.tabLayout.root.selectedTabPosition)
+        super.onDestroy()
     }
 }
