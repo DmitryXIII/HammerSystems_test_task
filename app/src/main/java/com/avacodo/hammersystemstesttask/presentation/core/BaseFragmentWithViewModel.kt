@@ -37,7 +37,7 @@ abstract class BaseFragmentWithViewModel<VB : ViewBinding, ResultType>(
             isNetworkConnectionDisabled = true
         }
 
-        lifecycleScope.launchWhenStarted {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             connectivityManager.observe().collect {
                 if(it == NetworkConnectionStatus.AVAILABLE) {
                     isNetworkConnectionDisabled = false
