@@ -14,7 +14,9 @@ class GetProductsUsecaseImpl(private val repository: ProductsRepository) : GetPr
             MenuDataDomain(
                 products = repository.getRemoteProducts(),
                 banners = repository.getRemoteBanners()
-            )
+            ).also {
+                repository.saveToCash(it)
+            }
         }
     }
 }

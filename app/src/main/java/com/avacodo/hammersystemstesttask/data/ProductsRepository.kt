@@ -1,5 +1,6 @@
 package com.avacodo.hammersystemstesttask.data
 
+import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
 import com.avacodo.hammersystemstesttask.domain.models.ProductDomain
 import com.avacodo.hammersystemstesttask.domain.models.ToolbarBannerDomain
 
@@ -8,4 +9,5 @@ interface ProductsRepository {
     suspend fun getLocalProducts(): List<ProductDomain>
     suspend fun getLocalBanners(): List<ToolbarBannerDomain>
     suspend fun getRemoteBanners(): List<ToolbarBannerDomain>
+    suspend fun saveToCash(dataList: MenuDataDomain)
 }

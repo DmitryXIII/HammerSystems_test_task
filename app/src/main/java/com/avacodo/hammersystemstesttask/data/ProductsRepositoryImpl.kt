@@ -1,16 +1,21 @@
 package com.avacodo.hammersystemstesttask.data
 
+import com.avacodo.hammersystemstesttask.data.local.CashDao
 import com.avacodo.hammersystemstesttask.data.remote.ProductsApi
+import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
 import com.avacodo.hammersystemstesttask.domain.models.ProductDomain
 import com.avacodo.hammersystemstesttask.domain.models.ToolbarBannerDomain
 
+private const val FAKE_BANNERS_URL = "https://i.ibb.co/ZWyVqdL/Hammer-Systems-Banner-Example.png"
+
 class ProductsRepositoryImpl(
     private val remoteDataSource: ProductsApi,
-    private val mapperToDomain: MapperToDomain,
+    private val localDataSource: CashDao,
+    private val modelsMapper: ModelsMapper,
 ) : ProductsRepository {
     override suspend fun getRemoteProducts(): List<ProductDomain> {
         return remoteDataSource.getProductsAsync().await().products.map {
-            mapperToDomain.mapRemoteDtoToDomain(it)
+            modelsMapper.mapRemoteDtoToDomain(it)
         }
     }
 
@@ -23,13 +28,22 @@ class ProductsRepositoryImpl(
     }
 
     override suspend fun getRemoteBanners(): List<ToolbarBannerDomain> {
-        val bannersList = mutableListOf<ToolbarBannerDomain>()
+        val fakeBannersList = mutableListOf<ToolbarBannerDomain>()
         repeat(3) {
-            bannersList.add(ToolbarBannerDomain(
+            fakeBannersList.add(ToolbarBannerDomain(
                 id = it + 1,
-                imageSource = "https://i.ibb.co/ZWyVqdL/Hammer-Systems-Banner-Example.png"
+                imageUrl = FAKE_BANNERS_URL
             ))
         }
-        return bannersList
+        return fakeBannersList
+    }
+
+    override suspend fun saveToCash(dataList: MenuDataDomain) {
+        localDataSource.apply {
+            clearProductsCash()
+            clearBannersCash()
+            saveProductsToCash(dataList.products.map { modelsMapper.mapProductDomainToLocal(it) })
+            saveBannersToCash(dataList.banners.map { modelsMapper.mapBannerDomainToLocal(it) })
+        }
     }
 }

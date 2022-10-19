@@ -41,7 +41,7 @@ class ToolbarBannersAdapter :
     inner class ToolbarBannersViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(toolbarBannerDomain: ToolbarBannerDomain) {
             ToolbarBannerItemBinding.bind(itemView).apply {
-                toolbarBannerItemImageView.load(toolbarBannerDomain.imageSource)
+                toolbarBannerItemImageView.load(toolbarBannerDomain.imageUrl)
             }
         }
     }

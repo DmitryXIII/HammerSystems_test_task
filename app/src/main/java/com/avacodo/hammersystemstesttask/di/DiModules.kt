@@ -1,15 +1,17 @@
 package com.avacodo.hammersystemstesttask.di
 
 import com.avacodo.hammersystemstesttask.data.GetProductsUsecaseImpl
-import com.avacodo.hammersystemstesttask.data.MapperToDomain
+import com.avacodo.hammersystemstesttask.data.ModelsMapper
 import com.avacodo.hammersystemstesttask.data.ProductsRepository
 import com.avacodo.hammersystemstesttask.data.ProductsRepositoryImpl
+import com.avacodo.hammersystemstesttask.data.local.LocalDatabase
 import com.avacodo.hammersystemstesttask.data.remote.ProductsApi
 import com.avacodo.hammersystemstesttask.data.remote.RetrofitClient
 import com.avacodo.hammersystemstesttask.domain.usecase.GetProductsUsecase
 import com.avacodo.hammersystemstesttask.presentation.screens.menu.MenuViewModel
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -23,10 +25,11 @@ val appModule = module {
     single<ProductsRepository> {
         ProductsRepositoryImpl(
             remoteDataSource = get(),
-            mapperToDomain = get())
+            localDataSource = get(),
+            modelsMapper = get())
     }
 
-    single { MapperToDomain() }
+    single { ModelsMapper() }
 }
 
 val viewModelModule = module {
@@ -43,4 +46,8 @@ val retrofitModule = module {
             .client(RetrofitClient().createClient())
             .build().create(ProductsApi::class.java)
     }
+}
+
+val roomModule = module {
+    single { LocalDatabase.getUserDatabase(androidContext()).cashDao }
 }
