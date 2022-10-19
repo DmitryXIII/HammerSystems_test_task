@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
 import com.avacodo.hammersystemstesttask.domain.usecase.GetProductsUsecase
-import com.avacodo.hammersystemstesttask.presentation.AppState
-import com.avacodo.hammersystemstesttask.presentation.BaseViewModel
+import com.avacodo.hammersystemstesttask.presentation.core.AppState
+import com.avacodo.hammersystemstesttask.presentation.core.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -27,10 +27,10 @@ class MenuViewModel(
         stateHandle[SELECTED_TAB_POSITION_KEY] = tabPosition
     }
 
-    fun getMenuData() {
+    fun getMenuData(isNetworkConnectionDisabled: Boolean) {
         resultState.value = AppState.Loading()
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            resultState.value = AppState.Success(usecase.getMenuData(false))
+            resultState.value = AppState.Success(usecase.getMenuData(isNetworkConnectionDisabled))
         }
     }
 }

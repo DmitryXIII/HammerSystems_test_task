@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.avacodo.hammersystemstesttask.databinding.FragmentMenuBinding
 import com.avacodo.hammersystemstesttask.domain.models.MenuDataDomain
-import com.avacodo.hammersystemstesttask.presentation.BaseFragmentWithViewModel
+import com.avacodo.hammersystemstesttask.presentation.core.BaseFragmentWithViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class MenuFragment :
@@ -17,12 +17,13 @@ class MenuFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         restoreTabPosition()
         initAdapters()
         subscribeOnDataChanges()
 
         if (savedInstanceState == null) {
-            viewModel.getMenuData()
+            viewModel.getMenuData(isNetworkConnectionDisabled)
         }
     }
 

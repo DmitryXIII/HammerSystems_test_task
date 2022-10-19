@@ -20,11 +20,11 @@ class ProductsRepositoryImpl(
     }
 
     override suspend fun getLocalProducts(): List<ProductDomain> {
-        TODO("Not yet implemented")
+        return localDataSource.getProductsCash().map { modelsMapper.mapProductLocalToDomain(it) }
     }
 
     override suspend fun getLocalBanners(): List<ToolbarBannerDomain> {
-        TODO("Not yet implemented")
+        return localDataSource.getBannersCash().map { modelsMapper.mapBannerLocalToDomain(it) }
     }
 
     override suspend fun getRemoteBanners(): List<ToolbarBannerDomain> {

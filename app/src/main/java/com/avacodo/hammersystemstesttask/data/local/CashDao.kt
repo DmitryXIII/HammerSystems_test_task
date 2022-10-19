@@ -15,6 +15,12 @@ interface CashDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveBannersToCash(dataList: List<BannersLocalEntity>)
 
+    @Query("SELECT * FROM ProductsLocalEntity")
+    suspend fun getProductsCash(): List<ProductsLocalEntity>
+
+    @Query("SELECT * FROM BannersLocalEntity")
+    suspend fun getBannersCash(): List<BannersLocalEntity>
+
     @Query("DELETE FROM ProductsLocalEntity")
     suspend fun clearProductsCash()
 

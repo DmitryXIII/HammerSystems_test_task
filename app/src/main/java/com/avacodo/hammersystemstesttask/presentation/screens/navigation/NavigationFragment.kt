@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.avacodo.hammersystemstesttask.R
 import com.avacodo.hammersystemstesttask.databinding.FragmentNavigationBinding
-import com.avacodo.hammersystemstesttask.presentation.BaseFragment
+import com.avacodo.hammersystemstesttask.presentation.core.BaseFragment
 import com.avacodo.hammersystemstesttask.presentation.screens.menu.MenuFragment
 
 class NavigationFragment :

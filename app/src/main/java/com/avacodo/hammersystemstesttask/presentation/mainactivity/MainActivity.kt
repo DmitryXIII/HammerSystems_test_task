@@ -1,7 +1,8 @@
-package com.avacodo.hammersystemstesttask.presentation
+package com.avacodo.hammersystemstesttask.presentation.mainactivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.avacodo.hammersystemstesttask.R
 import com.avacodo.hammersystemstesttask.presentation.screens.navigation.NavigationFragment
 import com.avacodo.hammersystemstesttask.presentation.screens.navigation.NavigationRouter
@@ -9,7 +10,9 @@ import com.avacodo.hammersystemstesttask.presentation.screens.navigation.Navigat
 private const val NAVIGATION_FRAGMENT_TAG = "NAVIGATION_FRAGMENT"
 
 class MainActivity : AppCompatActivity(), NavigationRouterProvider {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

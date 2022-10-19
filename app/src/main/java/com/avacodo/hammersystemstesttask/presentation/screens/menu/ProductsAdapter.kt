@@ -9,7 +9,7 @@ import coil.load
 import com.avacodo.hammersystemstesttask.R
 import com.avacodo.hammersystemstesttask.databinding.ProductItemBinding
 import com.avacodo.hammersystemstesttask.domain.models.ProductDomain
-import com.avacodo.hammersystemstesttask.presentation.DiffUtilCallback
+import com.avacodo.hammersystemstesttask.presentation.core.DiffUtilCallback
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask.presentation
+package com.avacodo.hammersystemstesttask.presentation.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.avacodo.hammersystemstesttask.R
+import com.avacodo.hammersystemstesttask.presentation.mainactivity.NavigationRouterProvider
 import com.avacodo.hammersystemstesttask.presentation.screens.navigation.NavigationRouter
 
 abstract class BaseFragment<VB : ViewBinding>(

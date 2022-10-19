@@ -15,4 +15,7 @@
     <string name="action_profile_title">Профиль</string>
     <string name="action_basket_title">Корзина</string>
     <string name="activity_isnt_navigation_router_provider_error_msg">MainActivity должна имплементировать NavigationRouterProvider</string>
+    <string name="alert_message_if_internet_is_off">Проверьте подключение к WI-FI или сотовой сети</string>
+    <string name="alert_title_if_internet_is_off">Отсутствует интернет-соединение</string>
+    <string name="default_alert_positive_button">OK</string>
 </resources>

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.avacodo.hammersystemstesttask.databinding.ToolbarBannerItemBinding
 import com.avacodo.hammersystemstesttask.domain.models.ToolbarBannerDomain
-import com.avacodo.hammersystemstesttask.presentation.DiffUtilCallback
+import com.avacodo.hammersystemstesttask.presentation.core.DiffUtilCallback
 
 class ToolbarBannersAdapter :
     RecyclerView.Adapter<ToolbarBannersAdapter.ToolbarBannersViewHolder>() {
@@ -45,8 +45,4 @@ class ToolbarBannersAdapter :
             }
         }
     }
-}
-
-fun interface OnRecyclerItemClickListener {
-    fun onItemClick(locationID: String)
 }

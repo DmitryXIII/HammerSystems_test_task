@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask.presentation
+package com.avacodo.hammersystemstesttask.presentation.mainactivity
 
 import com.avacodo.hammersystemstesttask.presentation.screens.navigation.NavigationRouter
 

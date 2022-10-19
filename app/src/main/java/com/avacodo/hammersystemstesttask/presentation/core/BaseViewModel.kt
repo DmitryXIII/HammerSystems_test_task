@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask.presentation
+package com.avacodo.hammersystemstesttask.presentation.core
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

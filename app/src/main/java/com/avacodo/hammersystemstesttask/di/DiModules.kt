@@ -8,6 +8,10 @@ import com.avacodo.hammersystemstesttask.data.local.LocalDatabase
 import com.avacodo.hammersystemstesttask.data.remote.ProductsApi
 import com.avacodo.hammersystemstesttask.data.remote.RetrofitClient
 import com.avacodo.hammersystemstesttask.domain.usecase.GetProductsUsecase
+import com.avacodo.hammersystemstesttask.presentation.network.ConnectionHandler
+import com.avacodo.hammersystemstesttask.presentation.network.ConnectivityObserver
+import com.avacodo.hammersystemstesttask.presentation.network.NetworkConnectionHandler
+import com.avacodo.hammersystemstesttask.presentation.network.NetworkConnectivityObserver
 import com.avacodo.hammersystemstesttask.presentation.screens.menu.MenuViewModel
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -46,6 +50,11 @@ val retrofitModule = module {
             .client(RetrofitClient().createClient())
             .build().create(ProductsApi::class.java)
     }
+}
+
+val networkObserverModule = module {
+    single<ConnectivityObserver> { NetworkConnectivityObserver(androidContext()) }
+    single<ConnectionHandler> { NetworkConnectionHandler() }
 }
 
 val roomModule = module {

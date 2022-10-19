@@ -31,9 +31,30 @@ class ModelsMapper {
         }
     }
 
+    fun mapProductLocalToDomain(productLocalEntity: ProductsLocalEntity): ProductDomain {
+        return with(productLocalEntity) {
+            ProductDomain(
+                id = id,
+                name = name,
+                description = description,
+                price = price,
+                imageUrl = imageUrl
+            )
+        }
+    }
+
     fun mapBannerDomainToLocal(bannerDomain: ToolbarBannerDomain): BannersLocalEntity {
         return with(bannerDomain) {
             BannersLocalEntity(
+                id = id,
+                imageUrl = imageUrl
+            )
+        }
+    }
+
+    fun mapBannerLocalToDomain(bannersLocal: BannersLocalEntity): ToolbarBannerDomain {
+        return with(bannersLocal) {
+            ToolbarBannerDomain(
                 id = id,
                 imageUrl = imageUrl
             )

@@ -1,4 +1,4 @@
-package com.avacodo.hammersystemstesttask.presentation
+package com.avacodo.hammersystemstesttask.presentation.core
 
 sealed class AppState<ResultType> {
     abstract fun handleState(
