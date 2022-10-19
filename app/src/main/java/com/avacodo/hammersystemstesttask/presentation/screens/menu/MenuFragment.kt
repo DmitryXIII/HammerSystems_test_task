@@ -14,6 +14,7 @@ class MenuFragment :
     override val viewModel by stateViewModel<MenuViewModel>()
     private val bannersAdapter = ToolbarBannersAdapter()
     private val productsAdapter = ProductsAdapter()
+    override val progressBar by lazy { binding.menuProgressBar }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,7 +54,7 @@ class MenuFragment :
     }
 
     override val provideOnSuccessAction: (MenuDataDomain) -> Unit = {
-        super.provideOnSuccessAction
+        super.provideOnSuccessAction.invoke(it)
         bannersAdapter.setData(it.banners)
         productsAdapter.setData(it.products)
     }
